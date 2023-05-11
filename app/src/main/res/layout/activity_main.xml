@@ -11,7 +11,8 @@
         android:layout_width="100dp"
         android:layout_height="70dp"
         android:text="@string/remove"
-        app:backgroundTint="@color/black"
+        android:textSize="14sp"
+        app:backgroundTint="@color/grey"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -20,20 +21,31 @@
         android:id="@+id/button2"
         android:layout_width="100dp"
         android:layout_height="70dp"
+        android:textSize="14sp"
         android:text="@string/add"
         android:textColor="@android:color/white"
-        app:backgroundTint="@color/black"
+        app:backgroundTint="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="210dp"
-        android:layout_height="71dp"
-        android:text="@string/add_text"
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:hint="@string/enter_text_here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTodoItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
