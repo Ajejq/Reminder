@@ -1,36 +1,28 @@
 package com.example.reminder
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.reminder.databinding.ItemTodoBinding
 
 class ToDoAdapter(
     private val todos: MutableList<ToDo>
-) : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>()
-{
-    class ToDoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+) : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
 
+    class ToDoViewHolder(itemView: ItemTodoBinding) : RecyclerView.ViewHolder(itemView.root) {
+        val title = itemView.tbTodoTitle
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoViewHolder {
-        return ToDoViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-            R.layout.item_todo,
-                parent,
-                false
-            )
-        )
+        val itemBinding = ItemTodoBinding.inflate(LayoutInflater.from(parent.context))
+        return ToDoViewHolder(itemBinding)
     }
 
     override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
         val curToDo = todos[position]
-        holder.itemView.apply {
-            
-
-        }
+        holder.title.text = curToDo.title
     }
 
     override fun getItemCount(): Int {
         return todos.size
-
     }
 }
